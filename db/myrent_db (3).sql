@@ -1,0 +1,507 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 28, 2023 at 01:29 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `myrent_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `interested`
+--
+
+CREATE TABLE `interested` (
+  `i_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL DEFAULT 1,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `interested`
+--
+
+INSERT INTO `interested` (`i_id`, `user_id`, `post_id`, `owner_id`, `created_at`) VALUES
+(48, 46, 14, 1, '2023-05-20 14:39:56'),
+(51, 46, 19, 1, '2023-05-20 14:40:55'),
+(52, 46, 41, 45, '2023-05-20 18:42:29'),
+(53, 46, 43, 47, '2023-05-20 18:43:04'),
+(55, 1, 43, 47, '2023-05-20 18:52:24'),
+(56, 1, 44, 45, '2023-05-20 19:05:12'),
+(57, 1, 22, 1, '2023-05-20 19:50:39'),
+(58, 1, 42, 46, '2023-05-20 19:52:42'),
+(59, 1, 45, 45, '2023-05-20 19:54:46'),
+(60, 45, 41, 45, '2023-05-22 16:50:34'),
+(61, 45, 16, 1, '2023-05-22 16:51:27'),
+(62, 51, 46, 49, '2023-05-27 06:19:32'),
+(63, 50, 48, 53, '2023-05-29 08:23:30'),
+(64, 56, 47, 49, '2023-05-29 16:39:23'),
+(65, 50, 46, 49, '2023-06-27 09:36:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `m_id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`m_id`, `sender_id`, `receiver_id`, `message`, `created_at`) VALUES
+(1, 0, 0, 'dd', '2023-05-21 07:21:44'),
+(2, 1, 46, 'I am going towards my destinattion.', '2023-05-21 07:27:14'),
+(3, 1, 46, 'dfdf', '2023-05-21 07:50:56'),
+(4, 1, 46, 'dd', '2023-05-21 07:54:05'),
+(5, 46, 1, 'latest', '2023-05-21 07:54:32'),
+(6, 1, 46, 'gg', '2023-05-21 07:57:04'),
+(7, 1, 46, 'jj', '2023-05-21 08:00:59'),
+(8, 1, 46, 'll', '2023-05-21 08:02:57'),
+(9, 1, 46, 'commit back', '2023-05-21 08:40:33'),
+(10, 1, 46, 'hello 3399', '2023-05-21 09:06:18'),
+(11, 1, 46, 'hello 3399', '2023-05-21 09:10:27'),
+(12, 1, 46, 'hello 3399', '2023-05-21 09:11:54'),
+(13, 1, 46, 'hello 355399', '2023-05-21 09:17:56'),
+(14, 1, 46, 'hello 355390000009', '2023-05-21 09:19:25'),
+(15, 1, 46, 'hello 9newewe', '2023-05-21 09:28:36'),
+(16, 1, 46, 'hello 9cat', '2023-05-21 09:40:59'),
+(17, 1, 46, 'hello 9cat100', '2023-05-21 10:29:45'),
+(18, 0, 46, 'ff', '2023-05-22 07:55:59'),
+(19, 0, 46, 'hh', '2023-05-22 07:57:19'),
+(20, 1, 46, 'ff', '2023-05-22 07:57:52'),
+(21, 1, 46, 'dd', '2023-05-22 07:59:10'),
+(22, 1, 46, 'ddd', '2023-05-22 08:08:21'),
+(23, 1, 46, 'Hello Hunchaa', '2023-05-22 08:08:32'),
+(24, 1, 46, 'hello guys', '2023-05-22 08:18:00'),
+(25, 1, 46, 'hello', '2023-05-22 08:24:22'),
+(260, 49, 45, 'gg', '2023-05-25 20:20:46'),
+(261, 49, 45, 'fdf', '2023-05-26 05:24:03'),
+(262, 49, 1, 'to id 1', '2023-05-26 08:57:57'),
+(263, 49, 1, 'to id 1 again', '2023-05-26 08:58:15'),
+(264, 49, 45, 'to aastha', '2023-05-26 09:07:55'),
+(265, 49, 1, 'to sandesh', '2023-05-26 09:08:08'),
+(267, 50, 45, 'hello is this available', '2023-05-26 09:11:09'),
+(274, 50, 49, 'hello pawan gi', '2023-05-26 13:04:31'),
+(275, 50, 49, 'hello gm pawan', '2023-05-27 05:40:41'),
+(276, 49, 50, 'gm balen', '2023-05-27 05:41:27'),
+(277, 50, 49, 'room xa', '2023-05-27 05:41:45'),
+(278, 49, 50, 'xa', '2023-05-27 05:41:53'),
+(279, 49, 50, '2 wota xa', '2023-05-27 05:41:57'),
+(280, 49, 50, '2ns floor ma', '2023-05-27 05:42:03'),
+(281, 49, 50, 'hh', '2023-05-27 05:44:21'),
+(282, 49, 49, 'fg', '2023-05-27 05:44:30'),
+(283, 49, 46, 'd', '2023-05-27 05:51:11'),
+(284, 50, 49, 'k xa', '2023-05-27 06:02:53'),
+(285, 49, 50, 'hello balen', '2023-05-27 06:03:24'),
+(286, 50, 49, 'hello pawan', '2023-05-27 06:03:32'),
+(287, 50, 49, 'dfdf', '2023-05-27 06:08:38'),
+(288, 50, 49, 'sdsd', '2023-05-27 06:08:54'),
+(289, 51, 49, 'sdsd', '2023-05-27 06:09:09'),
+(290, 51, 49, 'me aasign', '2023-05-27 06:09:14'),
+(291, 51, 49, 'room xa', '2023-05-27 06:09:41'),
+(292, 50, 49, 'sds', '2023-05-27 06:15:39'),
+(293, 51, 49, 'hello', '2023-05-27 06:22:46'),
+(294, 49, 51, 'hi', '2023-05-27 06:22:55'),
+(295, 51, 49, 'rom?', '2023-05-27 06:23:01'),
+(296, 49, 50, 'balen', '2023-05-27 06:23:19'),
+(297, 49, 51, 'aasih', '2023-05-27 06:23:29'),
+(298, 50, 49, 'hello is this available I am balen', '2023-05-27 06:29:51'),
+(299, 51, 1, 'hello sir', '2023-05-27 06:48:02'),
+(300, 51, 1, 'hello sir', '2023-05-27 06:52:58'),
+(301, 51, 1, 'hello test', '2023-05-27 06:53:09'),
+(303, 51, 1, 'hello 1', '2023-05-27 16:40:09'),
+(304, 51, 45, 'hello 45', '2023-05-27 16:40:23'),
+(305, 52, 49, 'Hello pawan 49', '2023-05-27 17:07:04'),
+(306, 49, 52, 'tes Tenent1', '2023-05-27 17:07:52'),
+(307, 52, 1, 'hello 1', '2023-05-27 17:08:42'),
+(308, 52, 1, 'is this available  ', '2023-05-27 17:08:49'),
+(309, 50, 1, 'hello 1 again', '2023-05-27 17:37:48'),
+(310, 52, 47, 'hello 47 by tenent1 ', '2023-05-27 17:39:39'),
+(311, 49, 46, 'ff', '2023-05-28 09:42:13'),
+(312, 52, 49, 'hello bca', '2023-05-28 09:42:43'),
+(313, 52, 49, 'how is bca', '2023-05-28 09:43:29'),
+(314, 49, 52, 'its fine', '2023-05-28 09:43:36'),
+(315, 52, 49, 'dfdf', '2023-05-28 09:46:48'),
+(316, 52, 49, 'hello 47', '2023-05-29 06:18:27'),
+(317, 47, 52, 'yes', '2023-05-29 06:19:06'),
+(318, 52, 49, 'hello by 52', '2023-05-29 06:36:13'),
+(319, 49, 52, 'yes ', '2023-05-29 06:36:47'),
+(320, 52, 49, 'hello', '2023-05-29 06:48:24'),
+(321, 49, 52, 'hello back', '2023-05-29 06:48:41'),
+(322, 52, 49, 'hello v2', '2023-05-29 06:48:59'),
+(323, 49, 52, 'h', '2023-05-29 06:49:11'),
+(324, 52, 49, 'sdd', '2023-05-29 06:52:16'),
+(325, 49, 52, 'sdd', '2023-05-29 06:52:20'),
+(326, 52, 49, 'hello 46', '2023-05-29 06:59:55'),
+(327, 49, 52, 'dff', '2023-05-29 07:13:01'),
+(328, 49, 50, 'ffg', '2023-05-29 07:13:36'),
+(329, 49, 50, 'fgfg', '2023-05-29 07:13:39'),
+(330, 49, 50, 'fgfgfg', '2023-05-29 07:13:44'),
+(331, 49, 50, 'fgfgfgfgfg', '2023-05-29 07:13:47'),
+(332, 49, 50, '', '2023-05-29 07:13:48'),
+(333, 49, 50, 'ff', '2023-05-29 07:13:56'),
+(334, 52, 49, 'ggg', '2023-05-29 07:22:41'),
+(335, 52, 49, 'lll', '2023-05-29 07:24:57'),
+(336, 52, 49, 'kk', '2023-05-29 07:25:39'),
+(337, 1, 46, 'klkl 47', '2023-05-29 07:26:06'),
+(338, 46, 1, 'from 46', '2023-05-29 07:35:18'),
+(339, 46, 1, 'dff', '2023-05-29 07:36:55'),
+(340, 52, 47, 'ddfd', '2023-05-29 08:14:14'),
+(341, 52, 49, 'fgfg', '2023-05-29 08:14:40'),
+(342, 52, 49, 'fg', '2023-05-29 08:15:01'),
+(343, 52, 53, 'hello is this available to test3', '2023-05-29 08:21:31'),
+(344, 53, 52, 'yes available', '2023-05-29 08:22:01'),
+(345, 50, 53, 'hello sir', '2023-05-29 08:25:14'),
+(346, 50, 49, 'hello', '2023-05-29 08:25:35'),
+(347, 53, 50, '', '2023-05-29 08:50:24'),
+(348, 53, 50, 'sdsdsd', '2023-05-29 08:50:30'),
+(349, 53, 50, 'sdsdsddsdsdsd', '2023-05-29 08:51:52'),
+(350, 53, 50, 'dgfdgggdgddfgd', '2023-05-29 08:52:12'),
+(351, 53, 50, 'fgdgdfg', '2023-05-29 08:52:16'),
+(352, 53, 50, 'gdgfdg', '2023-05-29 08:52:37'),
+(353, 53, 52, 'sdsd', '2023-05-29 08:53:18'),
+(354, 50, 45, 'dfdf', '2023-05-29 08:56:52'),
+(355, 50, 49, 'ghghg', '2023-05-29 08:56:59'),
+(356, 50, 49, 'hh', '2023-05-29 08:57:05'),
+(357, 53, 52, 'gfg', '2023-05-29 11:51:26'),
+(358, 53, 50, 'helo balen', '2023-05-29 11:51:56'),
+(359, 50, 53, 'yes', '2023-05-29 11:52:07'),
+(360, 50, 53, 'yes 2', '2023-05-29 11:52:37'),
+(361, 50, 53, 'hh', '2023-05-29 16:07:55'),
+(362, 50, 53, 'gg', '2023-05-29 16:08:14'),
+(363, 50, 53, 'fddfdf', '2023-05-29 16:09:04'),
+(364, 50, 53, 'ghh', '2023-05-29 16:09:53'),
+(365, 50, 53, 'ddfd', '2023-05-29 16:09:59'),
+(366, 50, 53, 'fgfg', '2023-05-29 16:10:03'),
+(367, 50, 53, 'dff', '2023-05-29 16:10:17'),
+(368, 50, 53, 'aa', '2023-05-29 16:10:20'),
+(369, 50, 53, 'bbbbbb fgfgf ', '2023-05-29 16:10:32'),
+(370, 50, 53, 'ssss bb', '2023-05-29 16:10:54'),
+(371, 56, 53, 'hello is this available', '2023-05-29 16:16:02'),
+(372, 53, 56, 'yes it is', '2023-05-29 16:16:15'),
+(373, 56, 53, 'okay', '2023-05-29 16:23:00'),
+(374, 53, 52, 'kk', '2023-05-29 16:25:26'),
+(375, 53, 53, 'dfd', '2023-05-29 16:28:18'),
+(376, 56, 53, 'hello sir', '2023-05-29 16:29:28'),
+(377, 53, 53, 'll', '2023-05-29 16:29:53'),
+(378, 53, 53, 'll', '2023-05-29 16:29:58'),
+(379, 56, 53, 'ff', '2023-05-29 16:34:36'),
+(380, 56, 49, 'is this available', '2023-05-29 16:39:57'),
+(381, 56, 47, 'g', '2023-05-29 16:41:15'),
+(382, 56, 47, 'gdgdgdf', '2023-05-29 16:41:30'),
+(383, 53, 52, 'll', '2023-05-29 17:02:40'),
+(384, 53, 52, 'lllll', '2023-05-29 17:02:46'),
+(385, 47, 56, 'lll', '2023-05-29 17:03:09'),
+(386, 47, 56, 'lkjkj', '2023-05-29 17:03:26'),
+(388, 53, 56, 'sdadsad', '2023-05-29 17:14:00'),
+(389, 47, 56, 'hjhjhj', '2023-05-29 17:16:35'),
+(391, 53, 50, 'fgfgfg', '2023-05-29 17:44:13'),
+(392, 53, 50, 'hello mayor ', '2023-05-29 18:29:15'),
+(393, 49, 50, 'c', '2023-06-04 07:59:53'),
+(394, 57, 49, 'is available?', '2023-06-14 09:35:23'),
+(395, 49, 57, 'yess', '2023-06-14 09:37:50'),
+(396, 49, 57, 'at itahari', '2023-06-14 09:38:16'),
+(397, 49, 57, 'ddf', '2023-06-14 09:38:32'),
+(398, 57, 49, 'ffgfgfg', '2023-06-14 09:38:53'),
+(399, 57, 49, 'vbvbb', '2023-06-14 09:38:57'),
+(400, 49, 57, 'ghghghgh', '2023-06-14 09:40:07'),
+(401, 49, 57, 'ffgfgfg', '2023-06-14 09:40:11'),
+(402, 50, 49, 'klklk', '2023-06-14 09:41:50'),
+(403, 50, 53, 'jkjk', '2023-06-14 09:41:55'),
+(404, 50, 53, 'klklk', '2023-06-14 09:42:02'),
+(405, 49, 50, 'jjj', '2023-06-14 09:42:25'),
+(406, 49, 50, 'fgfgfg', '2023-06-14 09:42:52'),
+(407, 49, 50, 'cat', '2023-06-14 09:43:03'),
+(408, 50, 49, 'hello pawan', '2023-06-14 09:45:00'),
+(409, 50, 49, 'kk', '2023-06-14 09:48:39'),
+(410, 50, 1, 'kk', '2023-06-14 09:49:31'),
+(411, 50, 49, 'hello sir', '2023-06-21 05:19:45'),
+(412, 49, 50, 'yes sir', '2023-06-21 05:19:58'),
+(413, 49, 50, 'yesss', '2023-06-21 05:20:14'),
+(414, 50, 49, 'ok', '2023-06-21 05:20:19'),
+(415, 49, 50, 'okkk', '2023-06-21 05:20:53'),
+(416, 49, 50, 'uu', '2023-06-21 05:22:46'),
+(417, 50, 49, 'vv', '2023-06-21 05:22:52'),
+(418, 49, 50, 'lll', '2023-06-21 05:26:19'),
+(419, 49, 50, 'llllllll', '2023-06-21 05:26:46'),
+(420, 50, 49, 'jj', '2023-06-21 05:26:50'),
+(421, 49, 50, 'lll', '2023-06-21 05:27:00'),
+(422, 49, 50, 'mmmm', '2023-06-21 05:27:06'),
+(423, 50, 49, 'balen', '2023-06-21 05:27:24'),
+(424, 49, 50, 'balen 2', '2023-06-21 05:27:49'),
+(425, 50, 53, 'jkjk', '2023-06-23 10:20:18'),
+(426, 50, 53, 'hjhjhjhjj', '2023-06-23 10:21:05'),
+(427, 50, 53, 'kkkk', '2023-06-23 10:21:19'),
+(428, 49, 50, 'Hello pawan', '2023-06-23 10:29:05'),
+(429, 50, 49, 'hello pawan', '2023-06-23 10:29:39'),
+(430, 50, 49, 'how are you', '2023-06-23 10:30:00'),
+(431, 50, 45, 'fgfg', '2023-06-23 10:37:20'),
+(432, 49, 50, 'hello pawan', '2023-06-26 09:27:57'),
+(433, 50, 49, 'yes balen', '2023-06-26 09:28:05'),
+(434, 50, 49, 'hello bca', '2023-06-26 09:38:06'),
+(435, 49, 50, 'yes balen', '2023-06-26 09:38:16'),
+(436, 50, 49, 'fhh', '2023-06-26 09:38:30'),
+(437, 49, 50, 'bb', '2023-06-26 09:38:36'),
+(438, 49, 50, 'll', '2023-06-26 09:38:52'),
+(439, 49, 50, 'lll', '2023-06-26 09:39:00'),
+(440, 50, 49, 'hh', '2023-06-26 09:39:16'),
+(441, 50, 49, 'hello agin', '2023-06-26 09:39:36'),
+(442, 50, 1, 'hello balen', '2023-06-26 09:40:32'),
+(443, 50, 1, 'balen', '2023-06-26 09:40:47'),
+(444, 49, 51, 'kkk', '2023-06-26 10:01:25'),
+(445, 50, 49, 'is available?', '2023-06-27 09:35:20'),
+(446, 49, 50, 'avi', '2023-06-27 09:35:35'),
+(447, 50, 49, 'fff', '2023-06-27 09:35:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `p_id` int(11) NOT NULL,
+  `p_title` varchar(200) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `p_category` varchar(200) NOT NULL,
+  `p_city` int(11) NOT NULL,
+  `p_address` varchar(200) NOT NULL,
+  `p_price` int(11) NOT NULL,
+  `p_description` text NOT NULL,
+  `p_latitude` double NOT NULL,
+  `p_longitude` double NOT NULL,
+  `p_status` int(11) NOT NULL DEFAULT 1,
+  `isApproved` int(11) NOT NULL DEFAULT 0,
+  `p_created` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`p_id`, `p_title`, `user_id`, `p_category`, `p_city`, `p_address`, `p_price`, `p_description`, `p_latitude`, `p_longitude`, `p_status`, `is_approved`, `p_created`) VALUES
+(14, '2 rooms', 1, '1', 1, 'Samyukta Chok,(near V.A School)', 2324, 'aas', 26.6736902, 87.2777491, 0, 1, '2023-05-09 08:41:01'),
+(15, '2rromsplus', 1, '2', 3, 'Dolorum vitae conseq', 53, 'Eveniet aute hic vo', 0, 0, 0, 1, '2023-05-09 08:42:29'),
+(16, '2romms000', 1, '1', 1, 'Samyukta Chok,(near V.A School)', 44, 'des', 26.4732672, 87.2742912, 0, 0, '2023-05-09 08:44:55'),
+(17, 'nykofok@mailinator.com', 1, 'Select Category', 2, 'Id consectetur solut', 729, 'Tempor maxime deseru', 0, 0, 0, 1, '2023-05-09 08:51:05'),
+(18, 'cehodyk@mailinator.com', 1, 'Select Category', 2, 'Officiis beatae ulla', 88, 'Ad rerum quo et temp', 0, 0, 0, 1, '2023-05-09 08:51:26'),
+(19, 'cehodyk@mailinator.com', 1, '3', 2, 'Officiis beatae ulla', 88, 'Ad rerum quo et temp', 0, 0, 0, 1, '2023-05-09 08:51:54'),
+(22, 'dyxegip@mailinator.com', 1, '2', 2, 'Repellendus Laboris', 971, 'Consequat Id qui si', 0, 0, 0, 0, '2023-05-09 19:30:23'),
+(24, 'tedi@mailinator.com', 1, '3', 2, 'Magni laborum facere', 591, 'Pariatur In qui rer', 26.5125888, 87.2873984, 0, 0, '2023-05-09 19:37:15'),
+(38, 'Quia ad natus assume', 1, '5', 2, 'Nisi sed numquam et ', 542, 'Laborum nulla quos d', 0, 0, 1, 1, '2023-05-14 10:54:07'),
+(41, 'Laudantium et animi', 45, '3', 5, 'Et repudiandae quis ', 171, 'Quis nihil harum des', 0, 0, 1, 0, '2023-05-20 07:29:13'),
+(42, 'Dolor non architecto', 46, '3', 2, 'Vel eligendi sunt q', 785, 'Omnis facilis commod', 0, 0, 1, 0, '2023-05-20 07:50:05'),
+(43, 'Flat for rent', 47, '5', 2, 'Itahari-4', 10000, 'Big size flat', 26.6737517, 87.277568, 1, 1, '2023-05-20 08:40:58'),
+(44, 'Ut adipisicing labor', 45, '3', 2, 'Aliquip sunt qui ass', 861, 'Culpa id consequatur', 0, 0, 1, 0, '2023-05-20 19:04:06'),
+(45, 'Nostrud inventore eu', 45, '3', 1, 'Culpa irure et mini', 757, 'Ut explicabo Offici', 0, 0, 1, 1, '2023-05-20 19:54:37'),
+(46, '3 rooms fo rent', 49, '3', 1, 'Near Namuna College', 7500, 'Big rooms', 26.4524746, 87.271781, 1, 1, '2023-05-25 08:38:04'),
+(47, 'Irure ipsam animi a', 49, '2', 5, 'Minima dolor aliqua', 337, 'Laborum fugiat volup', 0, 0, 1, 1, '2023-05-27 06:25:16'),
+(48, 'gdgfd', 53, '3', 2, 'gfdg', 444, 'fdfdf', 26.8198, 87.2885, 1, 1, '2023-05-29 08:20:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_images`
+--
+
+CREATE TABLE `post_images` (
+  `post_images_id` int(11) NOT NULL,
+  `post_images` varchar(250) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `status` varchar(250) NOT NULL DEFAULT 'show',
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `post_images`
+--
+
+INSERT INTO `post_images` (`post_images_id`, `post_images`, `post_id`, `status`, `created_at`) VALUES
+(11, 'Screenshot (5).png', 14, 'active', '2023-05-12 09:18:27'),
+(12, 'Screenshot (40).png', 15, 'active', '2023-05-12 09:18:27'),
+(18, 'Screenshot (19).png', 16, 'active', '2023-05-12 09:18:27'),
+(19, 'Screenshot (10).png', 17, 'active', '2023-05-12 09:18:27'),
+(20, 'Screenshot (11).png', 18, 'active', '2023-05-12 09:18:27'),
+(21, 'Screenshot (11).png', 19, 'active', '2023-05-12 09:18:27'),
+(25, 'Screenshot (130).png', 22, 'active', '2023-05-12 09:18:27'),
+(26, 'Screenshot (217).png', 22, 'active', '2023-05-12 09:18:27'),
+(58, 'Screenshot (2).png', 24, 'active', '2023-05-14 10:48:53'),
+(59, 'Screenshot (16).png', 24, 'active', '2023-05-14 10:48:53'),
+(60, 'Screenshot (11).png', 38, 'active', '2023-05-14 10:54:07'),
+(61, 'Screenshot (19).png', 38, 'active', '2023-05-14 10:54:07'),
+(68, 'Group 173.png', 41, 'active', '2023-05-20 07:29:13'),
+(69, 'Rectangle 14469.png', 41, 'active', '2023-05-20 07:29:13'),
+(70, '1683101586Group.png', 42, 'active', '2023-05-20 07:50:05'),
+(71, 'Rectangle 14455 (1).png', 42, 'active', '2023-05-20 07:50:05'),
+(72, 'Screenshot (221).png', 43, 'active', '2023-05-20 08:40:58'),
+(73, 'Screenshot (13).png', 43, 'active', '2023-05-20 08:40:58'),
+(74, '1640447591988.jpg', 44, 'active', '2023-05-20 19:04:06'),
+(75, '1640447592118.jpg', 45, 'active', '2023-05-20 19:54:37'),
+(76, '339411998_880495049703850_5870192412530744079_n.jpg', 46, 'active', '2023-05-25 08:38:04'),
+(77, 'Screenshot (154).png', 46, 'active', '2023-05-25 08:38:04'),
+(78, 'Screenshot (219).png', 46, 'active', '2023-05-25 08:38:04'),
+(79, 'Screenshot (82).png', 47, 'active', '2023-05-27 06:25:16'),
+(80, 'Screenshot (6).png', 47, 'active', '2023-05-27 06:25:16'),
+(81, 'Screenshot (1).png', 48, 'active', '2023-05-29 08:20:19'),
+(82, 'Screenshot (6).png', 48, 'active', '2023-05-29 08:20:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `u_id` int(11) NOT NULL,
+  `u_name` varchar(100) NOT NULL,
+  `u_email` varchar(100) NOT NULL,
+  `u_password` varchar(100) NOT NULL,
+  `u_created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `u_contact` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`u_id`, `u_name`, `u_email`, `u_password`, `u_created_at`, `u_contact`) VALUES
+(1, 'Test Owner', 'test@gmail.com', '12', '2023-05-18 06:51:19', '9842057828'),
+(25, 'Sandesh', 'sandeshadhikari200756@gmail.com', '12', '2023-05-18 08:25:10', '9842057828'),
+(26, 'Sandesh', 'sandeshadhikari204076@gmail.com', '12', '2023-05-18 08:27:12', '9842057828'),
+(27, 'Sandesh', 'sandeshadhikari200ssd76@gmail.com', '1', '2023-05-18 08:29:18', '9842057828'),
+(29, 'Sandesh', 'sandeshadhiggkari20076@gmail.com', '1', '2023-05-18 08:30:40', '9842057828'),
+(30, 'Sandesh', 'sandeshadhikari2007f6@gmail.com', '1', '2023-05-18 08:31:17', '9842057828'),
+(32, 'Sandesh', 'sandeshadhikari20dd076@gmail.com', '1', '2023-05-18 08:34:24', '9842057828'),
+(33, 'Sandesh', 'sandeshadhiggkariss20076@gmail.com', '1', '2023-05-18 08:36:24', '9842057828'),
+(35, 'Sandesh', 'sandeshadhikaaaari20076@gmail.com', '1', '2023-05-18 08:39:02', '9842057828'),
+(36, 'Sandesh', 'sandeshadhiasskfgari20076@gmail.com', '1', '2023-05-18 08:41:34', '9842057828'),
+(37, 'Sandesh', 'sandeshadhiasskfgaasri20076@gmail.com', '1', '2023-05-18 08:42:04', '9842057828'),
+(38, 'Sandesh', 'sandeshadhiksari20076@gmail.com', '1', '2023-05-18 08:42:43', '9842057828'),
+(40, 'Sandesh', 'sandessshadhikari20076@gmail.com', '1', '2023-05-18 08:43:12', '9842057828'),
+(43, 'Sandesh', 'sandeshadhikadfdfri20076@gmail.com', '1', '2023-05-18 08:43:54', '9842057828'),
+(44, 'Sandesh', 'sandeshadhikaddri20076@gmail.com', '1', '2023-05-18 08:44:43', '9842057828'),
+(45, 'Aastha Adhikari', 'aastha@gmail.com', '12', '2023-05-19 06:25:34', '9812345678'),
+(46, 'San', '123@gmail.com', '12', '2023-05-19 20:03:28', '345'),
+(47, 'Admin Admin', 'admin@gmail.com', '12', '2023-05-20 08:38:44', '987'),
+(48, 'Sandesh', '98@gmail.com', '12', '2023-05-24 08:48:58', '9866252'),
+(49, 'Pawan Acharya', 'pawan@gmail.com', '12', '2023-05-25 08:36:35', '9812345678'),
+(50, 'Balen Shah', 'balen@gmail.com', '12', '2023-05-25 08:39:06', '981234567'),
+(51, 'Aasish Shrestha', 'aasish@gmail.com', '12', '2023-05-27 06:07:27', '9812345678'),
+(52, 'Tenent1', 'tenent@gmail.com', '12', '2023-05-27 17:06:28', '56565'),
+(53, 'Test3', 'test3@gmail.com', '12', '2023-05-29 08:16:46', '3434'),
+(55, 'Joy Heath', '12@mailinator.com', '12', '2023-05-29 16:14:11', '4545'),
+(56, 'Charissa Solomon', '12@gmail.com', '12', '2023-05-29 16:15:16', '545'),
+(57, 'Sandesh', '88@gmail.com', '123', '2023-06-14 09:34:33', '456789');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `interested`
+--
+ALTER TABLE `interested`
+  ADD PRIMARY KEY (`i_id`),
+  ADD UNIQUE KEY `unique_entry` (`user_id`,`post_id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`m_id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`p_id`);
+
+--
+-- Indexes for table `post_images`
+--
+ALTER TABLE `post_images`
+  ADD PRIMARY KEY (`post_images_id`),
+  ADD KEY `fk_post_images_post_id` (`post_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`u_id`),
+  ADD UNIQUE KEY `u_email` (`u_email`),
+  ADD UNIQUE KEY `u_email_2` (`u_email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `interested`
+--
+ALTER TABLE `interested`
+  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=448;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `post_images`
+--
+ALTER TABLE `post_images`
+  MODIFY `post_images_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `post_images`
+--
+ALTER TABLE `post_images`
+  ADD CONSTRAINT `fk_post_images_post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`p_id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

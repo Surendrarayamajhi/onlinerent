@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.border {
+    border: 1px solid green;
+}
+
+body {
+    max-width: 100vw !important;
+    overflow-x: hidden;
+    background-color: whitesmoke !important;
+
+}
+
+/* bs internal STRAT */
+.navbar-light .navbar-toggler-icon {
+    /* background-image: url('../assets/elements/icon-hamburger.svg') !important; */
+}
+
+.navbar-toggler {
+    padding: 0.2rem 0.4rem;
+
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px #ccc;
+}
+
+/* bs internal END */
+
+/* custom global START  */
+.css-container {
+    /* max-width: 94%; */
+    padding-left: calc(20px + 1.5625vw) !important;
+    padding-right: calc(20px + 1.5625vw) !important;
+}
+
+/* .navbar-brand{
+    font-size: 20px;
+} */
+
+.fs-14{
+    font-size: 14px !important;
+}
+.btn-fav {
+
+    color: crimson;
+    font-size: 25px;
+}
+
+.btn-fav:hover {
+    color: green;
+}
+
+nav {
+    transition: all ease-in 0.3s;
+    opacity: 0.9;
+}
+
+.scrolled {
+    background-color: white !important;
+
+    color: black !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+    /* Add any other styles you want to apply when the navbar is scrolled */
+}
+
+.nav-link-scroll {
+    color: black !important;
+}
+
+.hover-text-black:hover {
+    color: black !important;
+}
+
+.one-line
+{
+    overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+}
+
+/* custom global END  */
+
+/* card START */
+.css-card-img{
+ max-height: 165px !important;
+ min-height: 165px !important;
+ object-fit: cover !important;
+}
+
+/* card START */

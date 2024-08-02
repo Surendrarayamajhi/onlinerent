@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Current Location Visualization</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <button onclick="getCurrentLocation()">Get My Location</button>
+    <input type="text" id="searchInput" placeholder="Search location" />
+    <button onclick="searchLocation()">Search</button>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([26.6633, 87.2679], 13); // Set the default view to Itahari, Nepal
+
+        // Add the tile layer to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+        }).addTo(map);
+
+        // Add a marker for Itahari
+        var itahariMarker = L.marker([26.6633, 87.2679]).addTo(map);
+        itahariMarker.bindPopup("Itahari, Nepal").openPopup();
+
+        // Center the map view to Itahari
+        map.setView([26.6633, 87.2679], 13);
+
+        // Add search control
+        var searchControl = L.control.geocoder({
+            defaultMarkGeocode: false,
+        }).addTo(map);
+
+        // Handle search result
+        searchControl.on('markgeocode', function (e) {
+            var latLng = e.geocode.center;
+            var marker = L.marker(latLng).addTo(map);
+            marker.bindPopup(e.geocode.name).openPopup();
+            map.setView(latLng, 13);
+        });
+
+        function getCurrentLocation() {
+            // Check if geolocation is supported
+            if (navigator.geolocation) {
+                // Remove the default marker
+                map.removeLayer(itahariMarker);
+
+                // Get the current location coordinates
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        var lat = position.coords.latitude;
+                        var lon = position.coords.longitude;
+
+                        console.log('lat', lat);
+                        console.log('lon', lon);
+
+                        // Create a marker at the current location
+                        var marker = L.marker([lat, lon]).addTo(map);
+                        marker.bindPopup("Your Location").openPopup();
+
+                        // Update the map view to the current location
+                        map.setView([lat, lon], 13);
+                    },
+                    function (error) {
+                        console.error('Error getting current location:', error);
+                    }
+                );
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+
+       function searchLocation() {
+            var searchText = document.getElementById('searchInput').value;
+
+            if (searchText) {
+                searchControl.geocode(searchText, function (results) {
+                    if (results && results.length > 0) {
+                        var latLng = results[0].center;
+                        var marker = L.marker(latLng).addTo(map);
+                        marker.bindPopup(results[0].name).openPopup();
+                        map.setView(latLng, 13);
+                    } else {
+                        console.error('No results found for the search query.');
+                    }
+                });
+            } else {
+                console.error('Please enter a location to search.');
+            }
+        }
+        </script>
+        </body>
+        
+        </html>

@@ -1,0 +1,80 @@
+
+.carousel-item img{
+    min-height: 420px;
+    max-height: 420px;
+    width: 100%;
+    object-fit: cover;
+}
+.ad-view-slider-row{
+    margin-top: 5px;
+}
+
+.ad-view-slider-wrap {
+    max-height: 50vh;
+}
+
+.ad-view-slider-wrap .carousel-item img {
+    min-height: 500px;
+    max-height: 70vh !important;
+    /* height: 70vh; */
+    object-fit: cover;
+}
+
+.ad-view-slider-wrap{
+    margin-top: 60px;
+}
+
+.carousel-caption{
+    background-color: white;
+    opacity: 0.7;
+
+}
+.ad-view-slider-row-right{
+    padding-top: 130px !important
+    ;
+}
+
+.ad-view-control-wrap button{
+    height: fit-content;
+}
+.row.border.amenitiesWrapper{
+box-shadow: 0 0 10px rgba(51, 51, 51, 0.1);
+    padding: 20px;
+    border-radius: 30px;
+}
+.amenities{
+display: flex;
+    font-size: 15px;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-right: 1px #dee2e6 solid;
+    padding: 0 23px;
+}
+
+.ad-view-detailes-wrap{
+margin-top: 200px;    
+}
+.amenitiesContent{
+    color: rgb(246, 81, 4);
+    /* color: crimson; */
+}
+
+@media only screen and (max-width: 1200px) {
+/* .ad-view-slider-wrap{
+    width: 100%;
+} */
+}
+
+@media only screen and (max-width: 600px) {
+    /*Big smartphones [426px -> 600px]*/
+}
+
+@media only screen and (max-width: 425px) {
+    /*Small smartphones [325px -> 425px]*/
+}
+
+       
